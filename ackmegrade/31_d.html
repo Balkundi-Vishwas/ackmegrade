@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <title>Document</title>
+</head>
+<body>
+      enter name:<input type="text" id="name">
+      enter year:<input type="text" id="year">
+      enter box:<input type="text" id="box">
+ <input type="button" onclick="enterrecord()" value="enter">
+      <table border="1px">
+            <thead>
+                  <tr>
+                        <th>movie name</th>
+                        <th>release year</th>
+                        <th>imdb rating</th>
+                        
+                  </tr>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+      </table>
+      <script>
+            imdb=[
+                  {name:'avengers',year:2004,box:700},
+                  {name:'iw',year:2005,box:600},
+                  {name:'eg',year:2007,box:900},
+                  {name:'sm',year:2010,box:1000},
+                  {name:'thor',year:2012,box:1200},
+            ]
+           
+
+            render();
+            function render()
+            {
+                  total_html="";
+            for(i=0;i<imdb.length;i++)
+            {
+            // trobj=document.createElement('tr');
+            // name_tdobj=document.createElement('td');
+            // year_tdobj=document.createElement('td');
+            // box_tdobj=document.createElement('td');
+            // name_tdobj.innerHTML=imdb[i].name;
+            // year_tdobj.innerHTML=imdb[i].year;
+            // box_tdobj.innerHTML=imdb[i].box;
+            // trobj.appendChild(name_tdobj);
+            // trobj.appendChild(year_tdobj);
+            // trobj.appendChild(box_tdobj);
+            // tbobj=document.getElementById('tbody');
+            // tbobj.appendChild(trobj);
+            html=`<tr>
+                  <td>${imdb[i].year}</td>
+                  <td>${imdb[i].box}</td>
+                  <td>${imdb[i].name}</td>
+                  </tr>`
+                  total_html=total_html+html;
+            }
+            tbobj=document.getElementById('tbody');
+            tbobj.innerHTML=total_html;    
+      }
+      function enterrecord()
+            {
+                  nameo=document.getElementById('name').value;
+                  boxo=document.getElementById('box').value;
+                  yearo=document.getElementById('year').value;
+
+                  obj={name:nameo,year:yearo,box:boxo}
+                  imdb.push(obj);
+                  render();
+                //  console.log("IMDB",imdb);
+            }
+      </script>
+</body>
+</html>
