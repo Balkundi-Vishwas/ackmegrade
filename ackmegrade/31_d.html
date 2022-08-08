@@ -53,8 +53,11 @@
                   <td>${imdb[i].year}</td>
                   <td>${imdb[i].box}</td>
                   <td>${imdb[i].name}</td>
+                  <td><button onclick="clicked(${i})" margin='5px'>click</button></td>
                   </tr>`
                   total_html=total_html+html;
+
+                  
             }
             tbobj=document.getElementById('tbody');
             tbobj.innerHTML=total_html;    
@@ -69,6 +72,12 @@
                   imdb.push(obj);
                   render();
                 //  console.log("IMDB",imdb);
+            }
+            function clicked(i)
+            {
+                  alert("button is been clicked");
+                  imdb.splice(i,1);
+                  render();
             }
       </script>
 </body>
